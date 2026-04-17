@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Aid Quick Reference | دليل الإسعافات الأولية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #c0392b;
+  --red-light: #fdecea;
+  --red-mid: #e74c3c;
+  --green: #1a6e3c;
+  --green-light: #eaf7ee;
+  --amber: #d4770a;
+  --amber-light: #fef3e2;
+  --blue: #1565c0;
+  --blue-light: #e3f2fd;
+  --bg: #f9f6f0;
+  --white: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #666;
+  --border: #ddd;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@media print {
+  .no-print { display: none !important; }
+  body { font-size: 11px; }
+  .page-break { page-break-before: always; }
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* COVER */
+.cover {
+  background: var(--red);
+  color: white;
+  padding: 0;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '❤️';
+  position: absolute;
+  font-size: 300px;
+  opacity: 0.06;
+  right: -40px; top: -60px;
+}
+.cover-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.cover-cross {
+  width: 80px; height: 80px;
+  background: white;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 44px;
+  flex-shrink: 0;
+  color: var(--red);
+  font-weight: 900;
+  font-family: 'Oswald', sans-serif;
+}
+.cover h1 {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.cover p { opacity: 0.85; font-size: 15px; }
+.cover-badges {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.cover-badge {
+  padding: 4px 12px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* EMERGENCY BANNER */
+.emergency-banner {
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.emergency-banner span { color: #ff4444; }
+
+/* MAIN */
+.main { max-width: 900px; margin: 0 auto; padding: 32px 40px; }
+
+/* QUICK NUMBERS */
+.quick-numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.number-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.number-card:hover { border-color: var(--red); }
+.number-icon { font-size: 28px; margin-bottom: 6px; }
+.number-val {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 2px;
+}
+.number-label { font-size: 12px; color: var(--muted); }
+
+/* SECTION */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--red);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px 10px 0 0;
+  margin-top: 28px;
+}
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 900; }
+.section-title-ar { font-size: 14px; opacity: 0.8; }
+
+/* CARDS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+.aid-card {
+  background: white;
+  padding: 20px;
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.aid-card:first-child { border-left: none; }
+
+.aid-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+.aid-icon { font-size: 28px; }
+.aid-name { font-size: 16px; font-weight: 700; }
+.aid-name-ar { font-size: 12px; color: var(--muted); }
+
+.steps { display: flex; flex-direction: column; gap: 8px; }
+.step {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.step-num {
+  width: 22px; height: 22px;
+  background: var(--red);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.warning-box {
+  background: var(--amber-light);
+  border: 1px solid var(--amber);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--amber);
+  margin-top: 12px;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+.do-box {
+  background: var(--green-light);
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--green);
+  margin-top: 8px;
+}
+.dont-box {
+  background: var(--red-light);
+  border: 1px solid var(--red);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 8px;
+}
+
+/* CPR BIG */
+.cpr-box {
+  background: white;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 28px;
+}
+.cpr-flow {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+.cpr-step {
+  flex: 1;
+  text-align: center;
+  padding: 16px 12px;
+  background: var(--red-light);
+  border: 1px solid rgba(192,57,43,0.2);
+  position: relative;
+  min-width: 100px;
+}
+.cpr-step:first-child { border-radius: 10px 0 0 10px; }
+.cpr-step:last-child { border-radius: 0 10px 10px 0; }
+.cpr-step-num {
+  width: 32px; height: 32px;
+  background: var(--red);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  margin: 0 auto 8px;
+}
+.cpr-step-title { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+.cpr-step-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.cpr-arrow {
+  display: flex; align-items: center;
+  color: var(--red);
+  font-size: 20px;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.rhythm-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--ink);
+  color: white;
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+.rhythm-icon { font-size: 36px; }
+.rhythm-text h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.rhythm-text p { font-size: 13px; opacity: 0.7; }
+.bpm { font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 700; color: var(--red-mid); }
+
+/* PRINT BUTTON */
+.print-btn {
+  display: block;
+  margin: 32px auto;
+  padding: 14px 36px;
+  background: var(--red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.print-btn:hover { background: var(--red-mid); }
+
+/* FOOTER */
+.footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+  margin-top: 40px;
+}
+.footer strong { color: white; }
+</style>
+</head>
+<body>
+
+<div class="emergency-banner">
+  🚨 EMERGENCY: Call <span>123</span> (Ambulance) | <span>122</span> (Police) | <span>180</span> (Child Helpline) 🚨
+</div>
+
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-cross">+</div>
+    <div>
+      <h1>First Aid Quick Reference<br>دليل الإسعافات الأولية السريع</h1>
+      <p>Emergency Response Unit | وحدة الاستجابة للطوارئ — 2025</p>
+      <div class="cover-badges">
+        <div class="cover-badge">🏥 Red Crescent Aligned</div>
+        <div class="cover-badge">📋 Print-Ready</div>
+        <div class="cover-badge">🌐 AR / EN</div>
+        <div class="cover-badge">👤 By [Your Name]</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- EMERGENCY NUMBERS -->
+  <div class="quick-numbers" style="margin-top:24px">
+    <div class="number-card">
+      <div class="number-icon">🚑</div>
+      <div class="number-val">123</div>
+      <div class="number-label">Ambulance | إسعاف</div>
+    </div>
+    <div class="number-card">
+      <div class="number-icon">🚒</div>
+      <div class="number-val">180</div>
+      <div class="number-label">Fire | إطفاء</div>
+    </div>
+    <div class="number-card">
+      <div class="number-icon">👮</div>
+      <div class="number-val">122</div>
+      <div class="number-label">Police | شرطة</div>
+    </div>
+    <div class="number-card">
+      <div class="number-icon">☎️</div>
+      <div class="number-val">08008880700</div>
+      <div class="number-label">Poison Control</div>
+    </div>
+  </div>
+
+  <!-- CPR SECTION -->
+  <div class="section-header">
+    <div class="section-icon">❤️</div>
+    <div>
+      <div class="section-title">CPR — Cardiopulmonary Resuscitation</div>
+      <div class="section-title-ar">الإنعاش القلبي الرئوي</div>
+    </div>
+  </div>
+  <div class="cpr-box">
+    <p style="font-size:14px;color:var(--muted);margin-bottom:4px">For adults who are unresponsive and not breathing normally. Call 123 FIRST.</p>
+    <div class="cpr-flow">
+      <div class="cpr-step">
+        <div class="cpr-step-num">1</div>
+        <div class="cpr-step-title">Check Scene</div>
+        <div class="cpr-step-desc">Is it safe? Tap shoulders. "Are you OK?"</div>
+      </div>
+      <div class="cpr-arrow">→</div>
+      <div class="cpr-step">
+        <div class="cpr-step-num">2</div>
+        <div class="cpr-step-title">Call 123</div>
+        <div class="cpr-step-desc">Send someone to call. Tell others to find AED.</div>
+      </div>
+      <div class="cpr-arrow">→</div>
+      <div class="cpr-step">
+        <div class="cpr-step-num">3</div>
+        <div class="cpr-step-title">30 Compressions</div>
+        <div class="cpr-step-desc">Hands on chest. Push down 5–6cm. Fast and hard.</div>
+      </div>
+      <div class="cpr-arrow">→</div>
+      <div class="cpr-step">
+        <div class="cpr-step-num">4</div>
+        <div class="cpr-step-title">2 Breaths</div>
+        <div class="cpr-step-desc">Tilt head, lift chin, give 2 rescue breaths (1 sec each).</div>
+      </div>
+      <div class="cpr-arrow">→</div>
+      <div class="cpr-step">
+        <div class="cpr-step-num">5</div>
+        <div class="cpr-step-title">Repeat</div>
+        <div class="cpr-step-desc">Continue 30:2 cycles until help arrives or AED is ready.</div>
+      </div>
+    </div>
+    <div class="rhythm-box">
+      <div class="bpm">100</div>
+      <div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:2px">Compressions per minute</div>
+        <div style="font-size:18px;font-weight:700">100–120 BPM</div>
+      </div>
+      <div class="rhythm-icon">🎵</div>
+      <div>
+        <div style="font-size:13px;font-weight:700">Sing mentally: "Stayin' Alive" (Bee Gees)</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5)">It's exactly the right rhythm for chest compressions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMON EMERGENCIES -->
+  <div class="section-header" style="margin-top:32px">
+    <div class="section-icon">🩹</div>
+    <div>
+      <div class="section-title">Common Emergency Situations</div>
+      <div class="section-title-ar">حالات الطوارئ الشائعة</div>
+    </div>
+  </div>
+  <div class="cards-grid">
+
+    <div class="aid-card">
+      <div class="aid-card-header">
+        <div class="aid-icon">🩸</div>
+        <div><div class="aid-name">Severe Bleeding</div><div class="aid-name-ar">نزيف حاد</div></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div>Put on gloves if available — protect yourself</div></div>
+        <div class="step"><div class="step-num">2</div><div>Apply firm pressure with clean cloth — don't remove</div></div>
+        <div class="step"><div class="step-num">3</div><div>Add more cloth on top if blood soaks through</div></div>
+        <div class="step"><div class="step-num">4</div><div>Elevate the wounded area above heart level</div></div>
+        <div class="step"><div class="step-num">5</div><div>Call 123 if severe or doesn't stop in 10 min</div></div>
+      </div>
+      <div class="dont-box">❌ Don't: Remove the cloth — it disturbs the clot</div>
+    </div>
+
+    <div class="aid-card">
+      <div class="aid-card-header">
+        <div class="aid-icon">🔥</div>
+        <div><div class="aid-name">Burns</div><div class="aid-name-ar">الحروق</div></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div>Remove from heat source safely</div></div>
+        <div class="step"><div class="step-num">2</div><div>Cool under running water for 20 minutes</div></div>
+        <div class="step"><div class="step-num">3</div><div>Cover with clean non-fluffy material</div></div>
+        <div class="step"><div class="step-num">4</div><div>Remove jewelry near the burn (before swelling)</div></div>
+      </div>
+      <div class="dont-box">❌ Don't: Use ice, butter, toothpaste, or creams</div>
+      <div class="warning-box">⚠️ Seek hospital if: Face/hands/large area or blisters form</div>
+    </div>
+
+    <div class="aid-card">
+      <div class="aid-card-header">
+        <div class="aid-icon">😮</div>
+        <div><div class="aid-name">Choking (Adult)</div><div class="aid-name-ar">الاختناق</div></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div>Ask: "Are you choking?" — if can't speak/cough, act</div></div>
+        <div class="step"><div class="step-num">2</div><div>Give 5 firm back blows between shoulder blades</div></div>
+        <div class="step"><div class="step-num">3</div><div>5 abdominal thrusts (Heimlich maneuver)</div></div>
+        <div class="step"><div class="step-num">4</div><div>Alternate: 5 back blows + 5 abdominal thrusts</div></div>
+        <div class="step"><div class="step-num">5</div><div>If unconscious: start CPR, call 123</div></div>
+      </div>
+      <div class="do-box">✅ If alone and choking: thrust abdomen onto hard chair edge</div>
+    </div>
+
+    <div class="aid-card">
+      <div class="aid-card-header">
+        <div class="aid-icon">🌡️</div>
+        <div><div class="aid-name">Heat Stroke</div><div class="aid-name-ar">ضربة الشمس</div></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div>Move to cool/shaded area immediately</div></div>
+        <div class="step"><div class="step-num">2</div><div>Remove excess clothing</div></div>
+        <div class="step"><div class="step-num">3</div><div>Apply cool (not ice cold) water to skin</div></div>
+        <div class="step"><div class="step-num">4</div><div>Fan the person to encourage cooling</div></div>
+        <div class="step"><div class="step-num">5</div><div>Give cool water if conscious and able to swallow</div></div>
+      </div>
+      <div class="warning-box">⚠️ Call 123 if: confused, unconscious, or temp above 40°C</div>
+    </div>
+
+    <div class="aid-card">
+      <div class="aid-card-header">
+        <div class="aid-icon">💊</div>
+        <div><div class="aid-name">Suspected Poisoning</div><div class="aid-name-ar">تسمم مشتبه به</div></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div>Call Poison Control: 08008880700 immediately</div></div>
+        <div class="step"><div class="step-num">2</div><div>Note what was taken, amount, and time</div></div>
+        <div class="step"><div class="step-num">3</div><div>Keep the container/packaging for doctors</div></div>
+        <div class="step"><div class="step-num">4</div><div>If unconscious and breathing: recovery position</div></div>
+      </div>
+      <div class="dont-box">❌ Don't: Induce vomiting unless told by medical staff</div>
+    </div>
+
+    <div class="aid-card">
+      <div class="aid-card-header">
+        <div class="aid-icon">😵</div>
+        <div><div class="aid-name">Seizure</div><div class="aid-name-ar">النوبة التشنجية</div></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div>Stay calm — protect the person from injury</div></div>
+        <div class="step"><div class="step-num">2</div><div>Clear the area of hard/sharp objects</div></div>
+        <div class="step"><div class="step-num">3</div><div>Place something soft under their head</div></div>
+        <div class="step"><div class="step-num">4</div><div>Time the seizure — call 123 if over 5 minutes</div></div>
+        <div class="step"><div class="step-num">5</div><div>After: recovery position, stay until fully alert</div></div>
+      </div>
+      <div class="dont-box">❌ Don't: Hold them down or put anything in their mouth</div>
+    </div>
+
+  </div>
+
+  <!-- RECOVERY POSITION -->
+  <div class="section-header" style="margin-top:32px">
+    <div class="section-icon">🛌</div>
+    <div>
+      <div class="section-title">Recovery Position | وضع الإفاقة</div>
+      <div class="section-title-ar">للشخص الفاقد الوعي والمتنفس</div>
+    </div>
+  </div>
+  <div style="background:white;border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:24px">
+    <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Use for unconscious persons who are breathing. Prevents choking on vomit.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <div style="flex:1;min-width:140px;background:var(--red-light);border:1px solid rgba(192,57,43,0.2);border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:24px;margin-bottom:6px">1️⃣</div>
+        <div style="font-size:13px;font-weight:700">Kneel beside them</div>
+        <div style="font-size:11px;color:var(--muted)">Straighten legs, arm nearest you at right angle</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:var(--red-light);border:1px solid rgba(192,57,43,0.2);border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:24px;margin-bottom:6px">2️⃣</div>
+        <div style="font-size:13px;font-weight:700">Bring far hand to cheek</div>
+        <div style="font-size:11px;color:var(--muted)">Hold hand against cheek, palm outward</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:var(--red-light);border:1px solid rgba(192,57,43,0.2);border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:24px;margin-bottom:6px">3️⃣</div>
+        <div style="font-size:13px;font-weight:700">Bend far knee</div>
+        <div style="font-size:11px;color:var(--muted)">Pull far knee up while keeping foot flat</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:var(--red-light);border:1px solid rgba(192,57,43,0.2);border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:24px;margin-bottom:6px">4️⃣</div>
+        <div style="font-size:13px;font-weight:700">Roll gently</div>
+        <div style="font-size:11px;color:var(--muted)">Roll toward you. Tilt head back to open airway</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:var(--red-light);border:1px solid rgba(192,57,43,0.2);border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:24px;margin-bottom:6px">5️⃣</div>
+        <div style="font-size:13px;font-weight:700">Monitor breathing</div>
+        <div style="font-size:11px;color:var(--muted)">Stay with them. Call 123. Check every 10 min</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="print-btn no-print" onclick="window.print()">🖨️ Print This Guide | طباعة الدليل</button>
+
+</div>
+
+<div class="footer">
+  <strong>First Aid Quick Reference Guide</strong> | Created by [Your Name] — Emergency Response Unit, 2025<br>
+  Certificate: Red Crescent First Aid | This guide is for reference only — always seek professional medical help<br>
+  هذا الدليل للمرجعية فقط — يُرجى دائماً طلب المساعدة الطبية المتخصصة
+</div>
+
+</body>
+</html>
